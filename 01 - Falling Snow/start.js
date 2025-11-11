@@ -13,7 +13,7 @@
   // ดึง Context 2D ออกมา (ตัวพู่กันสำหรับวาด). 
 // ผลลัพธ์: ส่งคืนออบเจกต์ที่มี Canvas, Context 2D (พู่กัน) และกำหนดจำนวนหิมะ 250 ก้อน.
 
-// 1. ฟังก์ชันใหม่สำหรับปรับขนาด Canvas
+// 1. เพิ่มฟังก์ชันใหม่สำหรับปรับขนาด Canvas
   function resizeCanvas(canvas) {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
@@ -109,13 +109,16 @@
     const drawSnowBall = createSnowBallDrawer(canvasContext);
     const moveSnowBall = createSnowBallMover(canvas);
 
-    // 2. เพิ่ม Event Listener สำหรับจัดการการปรับขนาดหน้าจอ
-    window.onresize = () => {
+    // 2. เพิ่มฟังก์ชันจัดการการปรับขนาด
+    const handleResize = () => {
       // 1. ปรับขนาด Canvas 
       resizeCanvas(canvas); 
       // 2. สร้างหิมะใหม่ทั้งหมดเพื่อให้หิมะกระจายเต็มพื้นที่ใหม่
       snowBalls = createSnowBalls(canvas, numberOfSnowBalls);
     };
+
+    // ใช้ addEventListener เพื่อจัดการ Event การปรับขนาดหน้าจอ
+    window.addEventListener('resize', handleResize);
 
     setInterval(() => {
       canvasContext.clearRect(0, 0, canvas.width, canvas.height);

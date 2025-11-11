@@ -1,3 +1,5 @@
+/* นำรูปภาพชื่อ background2.jpeg มาใช้เป็นพื้นหลังของหน้าเว็บและปรับขนาดรูปให้เต็มหน้าจอ */
+
 body {
   background-image: url('./background2.jpeg');
   background-size: cover;

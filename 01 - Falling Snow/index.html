@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!-- กำหนดให้ใช้ชุดตัวอักษร UTF-8, 
+ viewport การทำ Responsive Design,
+ie=edge เบราว์เซอร์ IE ให้ใช้การแสดงผลเวอร์ชันล่าสุด
+Falling Snow ข้อความที่จะแสดงบน Tab ของเบราว์เซอร์
+style.css การเชื่อมโยงไฟล์ CSS เพื่อใช้รูปแบบสี, ขนาด, ตำแหน่ง ให้กับหน้าเว็บ. -->
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,9 +14,18 @@
     <title>01 - Falling Snow</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
+
   <body>
+<!-- Layout Placeholder คือแท็ก div ที่ใช้เป็น Layout Container -->
+<!-- class="..." มาจากเฟรมเวิร์ก CSS อย่าง Tailwind ใช้เพื่อจัดรูปแบบองค์ประกอบต่างๆ บนหน้าจอ 
+ (จัดเรียงแบบ flex ให้เป็นคอลัมน์ในมือถือ (flex-col) และเปลี่ยนเป็นแถวในจอขนาดกลางขึ้นไป (md:flex-row)). -->
     <div class="flex flex-col md:flex-row items-stretch p-4"></div>
+
+<!-- Drawing Board คือ แท็ก <canvas> สำหรับวาดกราฟิกแบบ 2D หรือ 3D โดยใช้ JavaScript -->
+<!-- id="falling-snow-canvas": ชื่อ ID โค้ด JavaScript ใน start.js ใช้อ้างอิงและควบคุมการวาดหิมะลงบน Canvas -->
     <canvas id="falling-snow-canvas"></canvas>
+
+<!-- Brain หน้าที่เชื่อมโยงไฟล์ start.js ตำแหน่งวางแท็ก <script> ไว้ท้าย <body> เป็น Best Practice เพราะทำให้เบราว์เซอร์โหลดและแสดงผล HTML ทั้งหมดให้เสร็จก่อน แล้วค่อยโหลด JavaScript มาทำงาน ทำให้หน้าเว็บไม่ค้างในขณะที่กำลังโหลดสคริปต์ขนาดใหญ่. -->
     <script src="./start.js"></script>
   </body>
 </html>
